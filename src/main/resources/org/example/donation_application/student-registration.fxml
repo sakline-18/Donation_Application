@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.effect.*?>
+<VBox alignment="CENTER" styleClass="root" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.donation_application.controllers.StudentRegistrationController">
+    <ScrollPane fitToWidth="true" styleClass="root">
+        <VBox alignment="CENTER" styleClass="padding-large">
+            <VBox alignment="CENTER" styleClass="card" maxWidth="500">
+                <Label text="Student Registration" styleClass="title"/>
+                <Label text="Create your student account" styleClass="subtitle"/>
+                <VBox styleClass="spacing-medium">
+                    <TextField fx:id="nameField" promptText="Full Name" prefHeight="45"/>
+                    <TextField fx:id="emailField" promptText="Email Address" prefHeight="45"/>
+                    <PasswordField fx:id="passwordField" promptText="Password" prefHeight="45"/>
+                    <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password"
+                                   prefHeight="45"/>
+                    <TextField fx:id="phoneField" promptText="Phone Number" prefHeight="45"/>
+                    <TextArea fx:id="addressArea" promptText="Address" prefRowCount="3"/>
+                    <TextField fx:id="schoolField" promptText="School Name" prefHeight="45"/>
+                    <ComboBox fx:id="streamComboBox" prefHeight="45" maxWidth="Infinity"/>
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Label text="Need Amount ($):" styleClass="form-label" minWidth="120"/>
+                        <TextField fx:id="needAmountField" promptText="Enter amount needed (e.g., 5000)"
+                                   prefHeight="45" maxWidth="Infinity"/>
+                    </HBox>
+                    <TextArea fx:id="reasonTextArea" prefRowCount="4"/>
+
+                    <!-- Picture Upload Section -->
+                    <VBox alignment="CENTER" spacing="10">
+                        <Button fx:id="uploadPictureButton" onAction="#handleUploadPicture"
+                                text="Upload Picture" styleClass="button-secondary"
+                                prefHeight="40"/>
+                        <ImageView fx:id="pictureImageView" fitHeight="100" fitWidth="100"
+                                   preserveRatio="true" visible="false">
+                            <effect>
+                                <DropShadow/>
+                            </effect>
+                        </ImageView>
+                    </VBox>
+                </VBox>
+                <Label fx:id="messageLabel" wrapText="true"/>
+                <HBox styleClass="spacing-small" alignment="CENTER">
+                    <Button fx:id="registerButton" onAction="#handleRegister"
+                            text="Create Account" prefHeight="45" prefWidth="150"/>
+                    <Button fx:id="backButton" onAction="#handleBackToLogin"
+                            text="Back to Login" styleClass="button-secondary" prefHeight="45"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </ScrollPane>
+</VBox>

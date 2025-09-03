@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.donation_application.controllers.DonorDetailsController"
+      styleClass="detail-view" spacing="20" stylesheets="@styles/donor-details.css">
+
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Donor Details" styleClass="detail-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="closeButton" onAction="#handleClose" text="Close" styleClass="button-secondary"/>
+    </HBox>
+
+    <!-- Main Content -->
+    <HBox spacing="30">
+        <!-- Photo Section -->
+        <VBox alignment="CENTER" spacing="10">
+            <ImageView fx:id="donorImageView" fitHeight="150" fitWidth="150" preserveRatio="true"/>
+            <Label text="Donor Photo" styleClass="photo-label"/>
+        </VBox>
+
+
+        <!-- Personal Information -->
+        <VBox spacing="15">
+            <Label text="Personal Information" styleClass="section-header"/>
+            <VBox spacing="8">
+                <Label fx:id="nameLabel" styleClass="detail-name"/>
+                <Label fx:id="emailLabel"/>
+                <Label fx:id="phoneLabel"/>
+                <Label fx:id="addressLabel" wrapText="true"/>
+            </VBox>
+
+            <Separator/>
+
+            <Label text="Organization Information" styleClass="section-header"/>
+            <VBox spacing="8">
+                <Label fx:id="organizationLabel"/>
+                <Label fx:id="organizationTypeLabel"/>
+            </VBox>
+        </VBox>
+    </HBox>
+
+    <!-- Additional Details -->
+    <VBox spacing="10">
+        <Label text="Additional Information:" styleClass="section-header"/>
+        <TextArea fx:id="additionalInfoTextArea" editable="false" wrapText="true"
+                  prefRowCount="4" styleClass="detail-textarea"/>
+    </VBox>
+
+    <!-- Donation History Summary -->
+    <VBox spacing="10">
+        <Label text="Donation Summary:" styleClass="section-header"/>
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <Label fx:id="totalDonationsLabel" styleClass="summary-label"/>
+            <Label fx:id="totalAmountLabel" styleClass="summary-label"/>
+            <Label fx:id="lastDonationLabel" styleClass="summary-label"/>
+        </HBox>
+    </VBox>
+</VBox>
