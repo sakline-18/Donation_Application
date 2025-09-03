@@ -1,0 +1,105 @@
+/* Root container */
+.root {
+    -fx-background-color: #f4f4f4;
+    -fx-padding: 20;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Navigation bar */
+.nav-bar {
+    -fx-background-color: #1f2937;
+    -fx-padding: 10 20;
+    -fx-alignment: center-left;
+}
+
+/* Welcome text */
+.welcome-text {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Secondary buttons */
+.button-secondary {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 6 20;
+    -fx-background-radius: 5;
+    -fx-focus-color: transparent;   /* remove blue square */
+    -fx-faint-focus-color: transparent; /* remove faint square */
+    -fx-border-color: transparent;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #2563eb;
+    -fx-cursor: hand;
+}
+
+/* TabPane styling */
+.main-tabpane .tab {
+    -fx-background-color: #f4f4f4;
+}
+
+.main-tabpane .tab-header-background {
+    -fx-background-color: #e5e7eb;
+}
+
+/* Content container inside scrollpane */
+.content-container {
+    -fx-padding: 20;
+}
+
+/* Card style for profile/donation sections */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10,0,0,2);
+}
+
+/* Section headers */
+.section-header {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111827;
+}
+
+/* Subtitles */
+.subtitle {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+/* TableView styling */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-table-cell-border-color: #e5e7eb;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f3f4f6;
+}
+
+.table-view .column-header,
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.table-view .cell {
+    -fx-text-fill: #111827; /* dark text in table cells */
+}
+
+/* General labels */
+.label {
+    -fx-text-fill: #1f2937;
+}

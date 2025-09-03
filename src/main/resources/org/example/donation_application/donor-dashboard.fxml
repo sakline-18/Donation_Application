@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="10" styleClass="root" stylesheets="@styles/donor-dashboard.css"
+      xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.donation_application.controllers.DonorDashboardController">
+
+    <!-- Navigation Bar -->
+    <HBox alignment="CENTER_LEFT" spacing="10" styleClass="nav-bar">
+        <!-- using hex -->
+        <Label fx:id="welcomeLabel" styleClass="welcome-text" style="-fx-text-fill: #ffffff;"/>
+
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="logoutButton" onAction="#handleLogout" styleClass="button-secondary" text="Logout"/>
+    </HBox>
+
+    <TabPane VBox.vgrow="ALWAYS">
+
+        <!-- Make Donation Tab -->
+        <Tab closable="false" text="Make Donation">
+            <VBox spacing="15" styleClass="padding-large">
+
+                <!-- Filter and Actions Header -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Label styleClass="subtitle" text="Available Students"/>
+                    <Separator orientation="VERTICAL"/>
+                    <Label text="Filter by Stream:" style="-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                    <ComboBox fx:id="streamFilterComboBox" onAction="#handleStreamFilter" prefWidth="160" promptText="All Streams"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+<!--                    <Button fx:id="refreshButton" onAction="#handleRefresh" styleClass="button-secondary" text="Refresh"/>-->
+                </HBox>
+
+                <!-- Selected Student Info -->
+                <HBox fx:id="selectedStudentInfo" alignment="CENTER_LEFT" managed="false" spacing="10"
+                      styleClass="selected-info" visible="false">
+                    <Label text="Selected:" style="-fx-text-fill: white;"/>
+                    <Label fx:id="selectedStudentLabel" styleClass="selected-student" style="-fx-text-fill: white;"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="clearSelectionButton" onAction="#handleClearSelection" styleClass="button-secondary" text="Clear Selection"/>
+                </HBox>
+
+                <!-- Student Cards Container -->
+                <StackPane prefHeight="350" VBox.vgrow="ALWAYS">
+
+                    <!-- No Students Message -->
+                    <VBox fx:id="noStudentsMessage" alignment="CENTER" managed="false" spacing="10" visible="false">
+                        <Label styleClass="empty-icon" text="📚"/>
+                        <Label styleClass="empty-message" text="No students found"/>
+                        <Label styleClass="empty-hint" text="Try changing the filter or refresh the list"/>
+                    </VBox>
+
+                    <!-- Student Cards Area -->
+                    <ScrollPane fx:id="studentsScrollPane" fitToWidth="true" styleClass="cards-scroll-pane">
+                        <content>
+                            <FlowPane fx:id="studentsFlowPane" alignment="TOP_LEFT" hgap="20" orientation="HORIZONTAL" prefWrapLength="800" vgap="20">
+                                <padding>
+                                    <Insets bottom="15" left="15" right="15" top="15"/>
+                                </padding>
+
+                                <!-- Sample Student Card -->
+                                <VBox prefHeight="320" prefWidth="280" spacing="12" styleClass="student-card">
+                                    <padding>
+                                        <Insets bottom="15" left="15" right="15" top="15"/>
+                                    </padding>
+
+                                    <!-- Photo Placeholder -->
+                                    <VBox alignment="CENTER" prefHeight="100" styleClass="photo-container">
+                                        <Label styleClass="photo-placeholder" text="👤"/>
+                                    </VBox>
+
+                                    <!-- Student Info -->
+                                    <VBox spacing="8" VBox.vgrow="ALWAYS">
+                                        <Label styleClass="student-name" text="Student Name" wrapText="true" style="-fx-text-fill: white;"/>
+                                        <Label styleClass="student-id" text="ID: STU001" style="-fx-text-fill: white;"/>
+                                        <Label styleClass="student-stream" text="Stream: Computer Science" style="-fx-text-fill: white;"/>
+                                        <Label styleClass="need-amount" text="Need: $2,500" style="-fx-text-fill: white;"/>
+                                        <Label styleClass="description" text="Description of financial need and academic goals..." wrapText="true" style="-fx-text-fill: white;"/>
+                                    </VBox>
+
+                                    <!-- Select Button -->
+                                    <HBox alignment="CENTER">
+                                        <Button prefWidth="150" styleClass="select-button" text="Select Student"/>
+                                    </HBox>
+                                </VBox>
+
+                            </FlowPane>
+                        </content>
+                    </ScrollPane>
+
+                </StackPane>
+
+                <!-- Donate Button -->
+                <HBox alignment="CENTER">
+                    <Button fx:id="donateButton" disable="true" onAction="#handleDonate" prefWidth="200" styleClass="button-success" text="Donate"/>
+                </HBox>
+
+            </VBox>
+        </Tab>
+
+        <!-- My Donations Tab -->
+        <!-- My Donations Tab -->
+        <Tab closable="false" text="My Donations">
+            <VBox spacing="15" styleClass="padding-large">
+                <!-- Header with Report Actions -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Label styleClass="subtitle" text="Donation History"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="generateReportButton" onAction="#handleGenerateMyReport"
+                            styleClass="button-primary" text="Generate Report"/>
+                    <Button fx:id="exportDonationListButton" onAction="#handleExportDonationList"
+                            styleClass="button-secondary" text="Export PDF"/>
+                </HBox>
+
+                <!-- Donations Table -->
+                <TableView fx:id="donationsTable" prefHeight="400" VBox.vgrow="ALWAYS">
+                    <placeholder>
+                        <Label text="No donations yet"/>
+                    </placeholder>
+                    <columns>
+                        <TableColumn fx:id="recipientColumn" text="Recipient"/>
+                        <TableColumn fx:id="amountColumn" text="Amount"/>
+                        <TableColumn fx:id="descriptionColumn" text="Description"/>
+                        <TableColumn fx:id="dateColumn" text="Date"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+
+    </TabPane>
+</VBox>

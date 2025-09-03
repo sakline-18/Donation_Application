@@ -1,0 +1,88 @@
+/* ---------- Root ---------- */
+.app-background {
+    -fx-background-color:#5f6c7b ; /* light gray */
+}
+
+.scroll-pane,
+.scroll-pane .viewport {
+    -fx-background-color: transparent; /* allow root bg to show */
+}
+
+/* ---------- Card ---------- */
+.card {
+    -fx-background-color:#fff;
+    -fx-background-radius:12;
+    -fx-padding:30 25;
+    -fx-spacing:15;
+    -fx-effect:dropshadow(gaussian,rgba(0,0,0,0.15),12,0,0,6);
+}
+
+/* ---------- Headings ---------- */
+.title    { -fx-font-size:22; -fx-font-weight:bold; -fx-text-fill:#232f3e; }   /* dark blue */
+.subtitle { -fx-font-size:14; -fx-text-fill:#555; }
+
+/* ---------- Inputs (FormsFX / JFoenix ready) ---------- */
+.text-field,
+.password-field {
+    -fx-pref-height:45;
+    -fx-background-radius:8;
+    -fx-border-radius:8;
+    -fx-border-color:#d5d9d9;
+    -fx-padding:0 10;
+    -jfx-focus-color:#ff9900;      /* orange focus */
+    -jfx-unfocus-color:#d5d9d9;
+}
+
+/* ---------- Primary / Secondary buttons ---------- */
+.button {
+   -fx-background-color:#37475a;   /* Amazon blue-gray */
+       -fx-text-fill:#fff;
+       -fx-font-weight:bold;
+       -fx-background-radius:8;
+       -fx-cursor:hand;
+}
+.button:hover   { -fx-background-color:#e68a00; }
+.button:pressed { -fx-background-color:#cc7a00; }
+
+.button-secondary {
+   -fx-background-color:#37475a;   /* Amazon blue-gray */
+       -fx-text-fill:#fff;
+       -fx-font-weight:bold;
+       -fx-background-radius:8;
+       -fx-cursor:hand;
+}
+.button:hover   { -fx-background-color:#2c3847; }
+.button:pressed { -fx-background-color:#2c3847; }
+
+/* ---------- Message label ---------- */
+#messageLabel { -fx-text-fill:red; -fx-font-size:13; }
+/* Scrollbar track (background area) */
+.scroll-bar:vertical, .scroll-bar:horizontal {
+    -fx-background-color: #37475a; /* lighter Amazon navy */
+}
+
+/* Scrollbar thumb (the draggable part) */
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #2f3e4f; /* Amazon orange */
+    -fx-background-radius: 6;
+}
+
+/* Hover effect for thumb */
+.scroll-bar:vertical .thumb:hover,
+.scroll-bar:horizontal .thumb:hover {
+    -fx-background-color:#2f3e4f; /* lighter orange on hover */
+}
+
+/* Increment/Decrement buttons (arrows) */
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: #232f3e; /* Amazon dark navy */
+    -fx-background-radius: 4;
+}
+
+/* The arrow symbols inside buttons */
+.scroll-bar .increment-arrow,
+.scroll-bar .decrement-arrow {
+    -fx-background-color: white; /* white arrows */
+}

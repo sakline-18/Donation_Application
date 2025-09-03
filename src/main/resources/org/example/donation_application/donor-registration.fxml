@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.ScrollPane?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.12"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.donation_application.controllers.DonorRegistrationController"
+      alignment="CENTER"
+      styleClass="app-background "
+      stylesheets="@styles/donor-registration.css">
+
+    <!-- Outer padding -->
+    <padding><Insets top="32" right="32" bottom="32" left="32"/></padding>
+
+    <!-- Top spacer -->
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <!-- Scrollable card container -->
+    <ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="scroll-pane-modern">
+        <StackPane alignment="CENTER">
+            <VBox alignment="CENTER" maxWidth="600" spacing="18" styleClass="card">
+
+                <!-- Heading -->
+                <Label text="Donor Registration" styleClass="title"/>
+                <Label text="Join our community of supporters" styleClass="subtitle"/>
+
+                <!-- Form -->
+                <VBox spacing="14" styleClass="spacing-medium">
+                    <TextField fx:id="nameField" promptText="Full Name" maxWidth="Infinity" prefHeight="45"/>
+                    <TextField fx:id="emailField" promptText="Email Address" maxWidth="Infinity" prefHeight="45"/>
+                    <PasswordField fx:id="passwordField" promptText="Password" maxWidth="Infinity" prefHeight="45"/>
+                    <PasswordField fx:id="confirmPasswordField" promptText="Confirm Password" maxWidth="Infinity" prefHeight="45"/>
+                    <TextField fx:id="phoneField" promptText="Phone Number" maxWidth="Infinity" prefHeight="45"/>
+                    <TextField fx:id="organizationField" promptText="Organization (Optional)" maxWidth="Infinity" prefHeight="45"/>
+
+                    <!-- Picture upload -->
+                    <VBox alignment="CENTER" spacing="8">
+                        <Button fx:id="uploadPictureButton"
+                                text="Upload Picture"
+                                prefHeight="40"
+                                maxWidth="Infinity"
+                                styleClass="button-secondary"
+                                onAction="#handleUploadPicture"/>
+                        <ImageView fx:id="pictureImageView"
+                                   fitWidth="110"
+                                   fitHeight="110"
+                                   preserveRatio="true"
+                                   visible="false">
+                            <effect><DropShadow/></effect>
+                        </ImageView>
+                    </VBox>
+                </VBox>
+
+                <!-- Message label -->
+                <Label fx:id="messageLabel" wrapText="true" styleClass="message-label"/>
+
+                <!-- Buttons -->
+                <HBox alignment="CENTER" spacing="20" styleClass="spacing-small">
+                    <Button fx:id="registerButton"
+                            text="Create Account"
+                            prefHeight="45"
+                            maxWidth="Infinity"
+                            HBox.hgrow="ALWAYS"
+                            onAction="#handleRegister"/>
+                    <Button fx:id="backButton"
+                            text="Back to Login"
+                            prefHeight="45"
+                            maxWidth="Infinity"
+                            HBox.hgrow="ALWAYS"
+                            styleClass="button-secondary"
+                            onAction="#handleBackToLogin"/>
+                </HBox>
+
+            </VBox>
+        </StackPane>
+    </ScrollPane>
+
+    <!-- Bottom spacer -->
+    <Region VBox.vgrow="ALWAYS"/>
+</VBox>

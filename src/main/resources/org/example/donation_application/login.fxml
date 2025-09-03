@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" styleClass="root" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.donation_application.controllers.LoginController">
+    <children>
+        <Region VBox.vgrow="ALWAYS" />
+
+        <VBox alignment="CENTER" maxWidth="400" styleClass="card">
+            <children>
+                <Label styleClass="title" text="Donation Portal" />
+
+                <VBox alignment="CENTER" styleClass="spacing-medium">
+                    <children>
+                        <TextField fx:id="emailField" prefHeight="45" promptText="Email address" />
+                        <PasswordField fx:id="passwordField" prefHeight="45" promptText="Password" />
+
+                        <Button fx:id="loginButton" maxWidth="Infinity" onAction="#handleLogin" prefHeight="45" text="Sign In" />
+
+                        <Label fx:id="messageLabel" wrapText="true" />
+                    </children>
+                </VBox>
+
+                <Separator />
+
+                <VBox alignment="CENTER" styleClass="spacing-small">
+                    <children>
+                        <Label styleClass="section-header" text="Don't have an account?" />
+                        <HBox alignment="CENTER" styleClass="spacing-small">
+                            <children>
+                                <Button fx:id="registerStudentButton" onAction="#handleStudentRegister" styleClass="button-secondary" text="Register as Student" />
+                                <Button fx:id="registerDonorButton" onAction="#handleDonorRegister" styleClass="button-secondary" text="Register as Donor" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </VBox>
+
+        <Region VBox.vgrow="ALWAYS" />
+    </children>
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+    </padding>
+</VBox>

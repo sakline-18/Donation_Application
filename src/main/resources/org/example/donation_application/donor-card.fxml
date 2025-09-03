@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.effect.DropShadow?>
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.donation_application.controllers.DonorCardController"
+      styleClass="donor-card" spacing="10" maxWidth="280" prefWidth="280" onMouseClicked="#handleCardClick"
+      stylesheets="@styles/donor-card.css">
+
+    <padding>
+        <Insets top="15" right="15" bottom="15" left="15"/>
+    </padding>
+
+    <!-- Donor Photo Section-->
+    <StackPane>
+        <ImageView fx:id="donorImageView" fitHeight="100" fitWidth="100"
+                   preserveRatio="true" styleClass="student-photo">
+            <effect>
+                <DropShadow radius="5" offsetY="2" color="#00000040"/>
+            </effect>
+        </ImageView>
+    </StackPane>
+    <!-- Donor Name and Organization -->
+    <VBox alignment="CENTER_LEFT" spacing="5">
+        <Label fx:id="nameLabel" styleClass="donor-name" wrapText="true"/>
+        <Label fx:id="orgLabel" styleClass="donor-org" wrapText="true"/>
+    </VBox>
+
+    <!-- Contact Information -->
+    <VBox spacing="3">
+        <Label fx:id="emailLabel" styleClass="donor-email"/>
+        <Label fx:id="phoneLabel" styleClass="donor-phone"/>
+    </VBox>
+
+    <!-- Status Indicator -->
+    <HBox alignment="CENTER">
+        <Label fx:id="statusLabel" styleClass="donor-status" visible="false"/>
+    </HBox>
+
+    <!-- Click hint -->
+    <HBox alignment="CENTER">
+        <Label text="Click for details" styleClass="click-hint"
+               textAlignment="CENTER"/>
+    </HBox>
+</VBox>

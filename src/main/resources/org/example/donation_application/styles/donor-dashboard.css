@@ -1,0 +1,271 @@
+/* ============================= */
+/* Donor Dashboard Stylesheet    */
+/* Strictly modeled on Student   */
+/* ============================= */
+
+/* Root container (student dashboard exact) */
+.root {
+    -fx-background-color: #f4f4f4;
+    -fx-padding: 20;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* Welcome text (kept identical to student dashboard) */
+.welcome-text {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Navigation bar (student exact) */
+.nav-bar {
+    -fx-background-color: #1f2937;
+    -fx-padding: 10 20;
+    -fx-alignment: center-left;
+}
+
+/* Buttons: primary, profile, donation (student exact) */
+.button-secondary, .button-profile, .button-donation {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 6 20;
+    -fx-background-radius: 5;
+    -fx-cursor: hand;
+
+    /* Remove focus square */
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-insets: 0;
+}
+
+.button-secondary:hover, .button-profile:hover, .button-donation:hover {
+    -fx-background-color: #2563eb; /* hover color */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 6, 0, 0, 2);
+}
+
+.button-secondary:pressed, .button-profile:pressed, .button-donation:pressed {
+    -fx-background-color: #1d4ed8; /* pressed color */
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);
+}
+
+.button-secondary:focused, .button-profile:focused, .button-donation:focused {
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+}
+
+/* Keep donor-specific success button but map to student palette */
+.button-success {
+    -fx-background-color: #10b981; /* green-500 equivalent */
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 8 14;
+    -fx-cursor: hand;
+}
+.button-success:hover {
+    -fx-background-color: #059669;
+}
+
+/* TabPane styling (student exact) */
+.main-tabpane .tab {
+    -fx-background-color: #f4f4f4;
+}
+
+.main-tabpane .tab-header-background {
+    -fx-background-color: #e5e7eb;
+}
+
+/* Content container inside scrollpane (student exact) */
+.content-container {
+    -fx-padding: 20;
+}
+
+/* Card style for profile/sections (student exact) */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10,0,0,2);
+}
+
+/* Section headers (student exact) */
+.section-header {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #111827;
+}
+
+/* Subtitles (student exact) */
+.subtitle {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+/* ScrollPane (student exact) */
+.scroll-pane {
+    -fx-background: transparent;
+    -fx-border-color: transparent;
+}
+
+/* TableView styling (student exact) */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e5e7eb;
+    -fx-table-cell-border-color: #e5e7eb;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #f3f4f6;
+}
+
+.table-view .column-header,
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #1f2937;
+}
+
+.table-view .cell {
+    -fx-text-fill: #111827;
+}
+
+/* Global label color (student exact) */
+.label {
+    -fx-text-fill: #1f2937;
+}
+
+/* ----------------------------- */
+/* Donor-specific elements mapped to student styles */
+
+/* Donor cards use the exact student card look */
+.donor-card, .student-card {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 15;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}
+
+/* Slight donor-card padding variant (kept consistent) */
+.donor-card {
+    -fx-padding: 16;
+}
+
+/* Card hover (student exact behavior) */
+.student-card:hover, .donor-card:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 12, 0, 0, 3);
+    -fx-scale-x: 1.01;
+    -fx-scale-y: 1.01;
+}
+
+/* Photo / avatar container (student exact) */
+.photo-container {
+    -fx-background-color: #d1d5da;
+    -fx-border-radius: 50%;
+    -fx-background-radius: 50%;
+    -fx-alignment: center;
+}
+.photo-placeholder {
+    -fx-font-size: 36px;
+}
+
+/* Student/Donor text mapped to student tokens */
+.student-name, .donor-name {
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+    -fx-text-fill: #111827;
+}
+
+.student-id, .student-stream, .need-amount, .description,
+.donor-org, .donor-email, .donor-phone {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6b7280;
+}
+
+/* Donor status mapped to student token set */
+.donor-status {
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+    -fx-padding: 4 8 4 8;
+    -fx-background-radius: 12;
+    -fx-alignment: center;
+    -fx-text-fill: white;
+    -fx-background-color: #ef4444;
+}
+.donor-status.pending {
+    -fx-background-color: #ef4444;
+}
+.donor-status.approved {
+    -fx-background-color: #10b981;
+}
+.donor-status.info {
+    -fx-background-color: #3b82f6;
+}
+
+/* Select button mapped to student primary */
+.select-button {
+    -fx-background-color: #3b82f6;
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 6 12;
+    -fx-cursor: hand;
+}
+.select-button:hover {
+    -fx-background-color: #2563eb;
+}
+
+/* ScrollPane / ScrollBar styling (aligned with student dashboard) */
+.cards-scroll-pane .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+.cards-scroll-pane .scroll-bar:vertical .track {
+    -fx-background-color: #f4f4f4;
+}
+.cards-scroll-pane .scroll-bar:vertical .thumb {
+    -fx-background-color: #3b82f6;
+    -fx-background-radius: 5;
+}
+
+/* Empty state mapped to student cards */
+.empty-state {
+    -fx-background-color: white;
+    -fx-background-radius: 10;
+    -fx-padding: 20;
+    -fx-alignment: center;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);
+}
+.empty-icon {
+    -fx-font-size: 48px;
+    -fx-text-fill: #6b7280;
+}
+.empty-message {
+    -fx-font-size: 16px;
+    -fx-text-fill: #111827;
+    -fx-font-weight: bold;
+}
+.empty-hint {
+    -fx-font-size: 12px;
+    -fx-text-fill: #6b7280;
+}
+
+/* Selected table row (student exact) */
+.table-row-cell:selected {
+    -fx-background-color: #cce5ff;
+}
+
+/* Accessibility / focus styles (student-like) */
+.donor-card:focused, .student-card:focused {
+    -fx-effect: dropshadow(gaussian, rgba(59,130,246,0.16), 12, 0, 0, 3);
+    -fx-border-color: rgba(59,130,246,0.3);
+    -fx-border-width: 1.5px;
+    -fx-background-radius: 10;
+}
+
+/* Click hint (student exact) */
+.click-hint {
+    -fx-font-size: 11px;
+    -fx-text-fill: #6b7280;
+    -fx-font-style: italic;
+}
