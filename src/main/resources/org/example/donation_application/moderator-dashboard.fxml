@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="root"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      stylesheets="@styles/moderator-dashboard.css"
+      fx:controller="org.example.donation_application.controllers.ModeratorDashboardController">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="nav-bar" alignment="CENTER_LEFT" spacing="20" prefHeight="60">
+        <padding>
+            <Insets top="10" right="10" bottom="10" left="10"/>
+        </padding>
+        <Label fx:id="welcomeLabel" text="Welcome, Moderator"
+               style="-fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="logoutButton" onAction="#handleLogout" text="Logout" styleClass="button-secondary"/>
+    </HBox>
+
+    <!-- Main Content -->
+    <TabPane VBox.vgrow="ALWAYS" styleClass="main-tabpane">
+
+        <!-- Pending Approvals -->
+        <Tab text="Pending Approvals" closable="false">
+            <VBox spacing="15" styleClass="content-container">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <!-- Header with Actions -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Label text="Student Registration Requests" styleClass="subtitle"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+<!--                    <Button fx:id="refreshButton" onAction="#handleRefresh" text="Refresh"-->
+<!--                            styleClass="button-secondary"/>-->
+                </HBox>
+
+                <!-- Selected Pending Student Info -->
+                <HBox fx:id="selectedPendingInfo" alignment="CENTER_LEFT" spacing="10"
+                      visible="false" managed="false" styleClass="card">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                    <Label text="Selected:" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="selectedPendingLabel" styleClass="selected-student"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="approveButton" onAction="#handleApproveStudent" text="Approve"
+                            styleClass="button-success"/>
+                    <Button fx:id="rejectButton" onAction="#handleRejectStudent" text="Reject"
+                            styleClass="button-danger"/>
+                    <Button fx:id="clearPendingSelectionButton" onAction="#handleClearPendingSelection" text="Clear"
+                            styleClass="button-secondary"/>
+                </HBox>
+
+                <!-- Pending Students Cards -->
+                <ScrollPane fx:id="pendingScrollPane" fitToWidth="true"
+                            VBox.vgrow="ALWAYS" prefHeight="350" styleClass="cards-scroll-pane">
+                    <content>
+                        <FlowPane fx:id="pendingFlowPane" hgap="20" vgap="20">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+                        </FlowPane>
+                    </content>
+                </ScrollPane>
+
+                <!-- No Pending Students Message -->
+                <VBox fx:id="noPendingMessage" alignment="CENTER" spacing="8"
+                      visible="false" managed="false" styleClass="empty-state card">
+                    <padding>
+                        <Insets top="15" right="15" bottom="15" left="15"/>
+                    </padding>
+                    <Label text="No pending students" styleClass="empty-message"/>
+                    <Label text="All registration requests have been processed" styleClass="empty-hint"/>
+                </VBox>
+            </VBox>
+        </Tab>
+
+        <!-- Manage Students -->
+        <Tab text="Manage Students" closable="false">
+            <VBox spacing="15" styleClass="content-container">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <!-- Header with Actions -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Label text="Approved Students" styleClass="subtitle"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+<!--                    <Button fx:id="refreshStudentsButton" onAction="#handleRefresh" text="Refresh"-->
+<!--                            styleClass="button-secondary"/>-->
+                </HBox>
+
+                <!-- Selected Approved Student Info -->
+                <HBox fx:id="selectedStudentInfo" alignment="CENTER_LEFT" spacing="10"
+                      visible="false" managed="false" styleClass="card">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                    <Label text="Selected:" style="-fx-font-weight: bold;"/>
+                    <Label fx:id="selectedStudentLabel" styleClass="selected-student"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="removeStudentButton" onAction="#handleRemoveStudent" text="Remove"
+                            styleClass="button-danger"/>
+                    <Button fx:id="clearStudentSelectionButton" onAction="#handleClearStudentSelection" text="Clear"
+                            styleClass="button-secondary"/>
+                </HBox>
+
+                <!-- Approved Students Cards -->
+                <ScrollPane fx:id="studentsScrollPane" fitToWidth="true"
+                            VBox.vgrow="ALWAYS" prefHeight="350" styleClass="cards-scroll-pane">
+                    <FlowPane fx:id="studentsFlowPane" hgap="20" vgap="20">
+                        <padding>
+                            <Insets top="10" right="10" bottom="10" left="10"/>
+                        </padding>
+                    </FlowPane>
+                </ScrollPane>
+
+                <!-- No Students Message -->
+                <VBox fx:id="noStudentsMessage" alignment="CENTER" spacing="8"
+                      visible="false" managed="false" styleClass="empty-state card">
+                    <padding>
+                        <Insets top="15" right="15" bottom="15" left="15"/>
+                    </padding>
+                    <Label text="No approved students found" styleClass="empty-message"/>
+                    <Label text="Students will appear here after approval" styleClass="empty-hint"/>
+                </VBox>
+            </VBox>
+        </Tab>
+
+        <!-- Manage Donors -->
+        <Tab text="Manage Donors" closable="false">
+            <VBox spacing="15" styleClass="content-container">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <!-- Header with Actions -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Label text="Registered Donors" styleClass="subtitle"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+<!--                    <Button fx:id="refreshDonorsButton" onAction="#handleRefresh"-->
+<!--                            text="Refresh" styleClass="button-secondary"/>-->
+                </HBox>
+
+                <!-- Selected Donor Info -->
+                <HBox fx:id="selectedDonorInfo" alignment="CENTER_LEFT" spacing="10"
+                      visible="false" managed="false" styleClass="selected-info">
+                    <Label text="Selected:"/>
+                    <Label fx:id="selectedDonorLabel" styleClass="selected-donor"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="removeDonorButton" onAction="#handleRemoveDonor"
+                            text="Remove Donor" styleClass="button-danger"/>
+                    <Button fx:id="clearDonorSelectionButton" onAction="#handleClearDonorSelection"
+                            text="Clear Selection" styleClass="button-secondary"/>
+                </HBox>
+
+                <!-- Donor Cards -->
+                <ScrollPane fx:id="donorsScrollPane" fitToWidth="true"
+                            VBox.vgrow="ALWAYS" prefHeight="350" styleClass="cards-scroll-pane">
+                    <content>
+                        <FlowPane fx:id="donorsFlowPane" hgap="20" vgap="20"
+                                  alignment="TOP_LEFT" orientation="HORIZONTAL">
+                            <padding>
+                                <Insets top="10" right="10" bottom="10" left="10"/>
+                            </padding>
+                        </FlowPane>
+                    </content>
+                </ScrollPane>
+
+                <!-- No Donors Message -->
+                <VBox fx:id="noDonorsMessage" alignment="CENTER" spacing="10"
+                      visible="false" managed="false" styleClass="empty-state">
+                    <Label text="No donors found" styleClass="empty-message"/>
+                    <Label text="Registered donors will appear here"
+                           styleClass="empty-hint"/>
+                </VBox>
+            </VBox>
+        </Tab>
+
+        <!-- NEW TRANSACTIONS TAB -->
+        <Tab text="All Transactions" closable="false">
+            <VBox spacing="15" styleClass="content-container">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+                <!-- Header with Report Generation -->
+                <HBox alignment="CENTER_LEFT" spacing="15">
+                    <Label text="Transaction History" styleClass="subtitle"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="generateAllDonationsReportButton" onAction="#handleGenerateAllDonationsReport"
+                            text="📊 Generate Report" styleClass="button-primary" />
+<!--                    <Button fx:id="refreshTransactionsButton" onAction="#handleRefreshTransactions"-->
+<!--                            text="🔄 Refresh" styleClass="button-secondary" />-->
+                </HBox>
+
+                <!-- Filter Section -->
+                <VBox spacing="10" styleClass="card">
+                    <padding>
+                        <Insets top="15" right="15" bottom="15" left="15"/>
+                    </padding>
+                    <Label text="Filter Transactions" style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+
+                    <!-- Date Filters -->
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <Label text="Date Range:" minWidth="80"/>
+                        <Label text="From:"/>
+                        <DatePicker fx:id="dateFromPicker" prefWidth="140"/>
+                        <Label text="To:"/>
+                        <DatePicker fx:id="dateToPicker" prefWidth="140"/>
+                    </HBox>
+
+                    <!-- Amount Filters -->
+                    <HBox spacing="15" alignment="CENTER_LEFT">
+                        <Label text="Amount Range:" minWidth="80"/>
+                        <Label text="Min ($):"/>
+                        <TextField fx:id="minAmountField" promptText="e.g., 50.00" prefWidth="100"/>
+                        <Label text="Max ($):"/>
+                        <TextField fx:id="maxAmountField" promptText="e.g., 1000.00" prefWidth="100"/>
+                    </HBox>
+
+                    <!-- Filter Buttons -->
+                    <HBox spacing="10" alignment="CENTER_LEFT">
+                        <Button fx:id="filterTransactionsButton" text="Apply Filters"
+                                styleClass="button-primary" prefWidth="120"/>
+                        <Button fx:id="clearFiltersButton" text="Clear Filters"
+                                styleClass="button-secondary" prefWidth="120"/>
+                    </HBox>
+                </VBox>
+
+                <!-- Transactions Table -->
+                <TableView fx:id="transactionsTable" VBox.vgrow="ALWAYS" styleClass="table-view card">
+                    <placeholder>
+                        <Label text="No transactions found"/>
+                    </placeholder>
+                    <columns>
+                        <TableColumn fx:id="transactionDonorColumn" text="Donor" prefWidth="150"/>
+                        <TableColumn fx:id="transactionStudentColumn" text="Student" prefWidth="150"/>
+                        <TableColumn fx:id="transactionAmountColumn" text="Amount" prefWidth="100"/>
+                        <TableColumn fx:id="transactionDescriptionColumn" text="Description" prefWidth="200"/>
+                        <TableColumn fx:id="transactionDateColumn" text="Date &amp; Time" prefWidth="150"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+</VBox>

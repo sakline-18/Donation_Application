@@ -1,0 +1,102 @@
+/* Root container with modern warm background */
+.root {
+    -fx-background-color: #eef2f7; /* soft warm cream */
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+    -fx-alignment: center;
+}
+
+/* ScrollPane content padding */
+.padding-large {
+    -fx-padding: 30;
+    -fx-spacing: 25;
+}
+
+/* Card container */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #e0dcd1;
+    -fx-border-width: 1;
+    -fx-padding: 30;
+    -fx-spacing: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 5);
+}
+
+/* Titles and subtitles */
+.title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #7a4c2b; /* warm brown */
+}
+.subtitle {
+    -fx-font-size: 14px;
+    -fx-text-fill: #a87c5b;
+}
+
+/* TextFields and PasswordFields */
+.text-field, .password-field, .text-area, .combo-box {
+    -fx-background-color: #fff8f0;
+    -fx-border-color: #d6c7b1;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 6 10 6 10;
+    -fx-font-size: 13px;
+    -fx-text-fill: #4d3c2b;
+}
+
+/* TextArea specific styling */
+.text-area {
+    -fx-font-size: 13px;
+    -fx-text-fill: #4d3c2b;
+}
+
+/* Labels for messages */
+.message-label {
+    -fx-font-size: 13px;
+    -fx-text-fill: #d35400; /* subtle warning color */
+}
+
+/* Buttons */
+.button, .button-secondary {
+    -fx-background-radius: 8;
+    -fx-padding: 8 16 8 16;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+/* Primary button */
+#registerButton {
+    -fx-background-color: #d35400;
+    -fx-text-fill: white;
+}
+#registerButton:hover {
+    -fx-background-color: #e67e22;
+}
+
+/* Secondary buttons */
+.button-secondary {
+    -fx-background-color: #a87c5b;
+    -fx-text-fill: white;
+}
+.button-secondary:hover {
+    -fx-background-color: #c29b79;
+}
+
+/* Upload picture image view shadow */
+#pictureImageView {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+/* HBox spacing for buttons */
+.spacing-small {
+    -fx-spacing: 15;
+    -fx-alignment: center;
+}
+
+/* VBox spacing medium */
+.spacing-medium {
+    -fx-spacing: 15;
+}

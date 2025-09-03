@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.donation_application.controllers.StudentDetailsController"
+      styleClass="detail-view"
+      stylesheets="@styles/student-detail.css"
+      spacing="25"
+      alignment="TOP_CENTER">
+
+    <!-- Padding around the entire view -->
+    <padding>
+        <Insets top="30" right="30" bottom="30" left="30"/>
+    </padding>
+
+    <!-- Header: Title + Close Button -->
+    <HBox alignment="CENTER_LEFT" spacing="20">
+        <Label text="Student Details" styleClass="detail-title"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="closeButton" onAction="#handleClose" text="Close" styleClass="button-secondary"/>
+    </HBox>
+
+    <!-- Main Content: Image + Basic Info -->
+    <HBox spacing="30" alignment="TOP_LEFT">
+        <!-- Student Image -->
+        <ImageView fx:id="studentImageView" fitHeight="150" fitWidth="150" preserveRatio="true"
+                   style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5); -fx-background-radius: 10;"/>
+
+        <!-- Student Info -->
+        <VBox spacing="12">
+            <Label fx:id="nameLabel" styleClass="detail-name"/>
+            <Label fx:id="emailLabel"/>
+            <Label fx:id="phoneLabel"/>
+            <Label fx:id="schoolLabel"/>
+            <Label fx:id="streamLabel"/>
+            <Label fx:id="addressLabel" wrapText="true"/>
+        </VBox>
+    </HBox>
+    <VBox spacing="10">
+        <Label text="Financial Information:" styleClass="section-header"/>
+        <HBox spacing="15" alignment="CENTER_LEFT">
+            <Label text="Need Amount:" styleClass="detail-label"/>
+            <Label fx:id="needAmountLabel" styleClass="detail-value"/>
+        </HBox>
+    </VBox>
+
+    <!-- Reason for Registration -->
+    <VBox spacing="12">
+        <Label text="Reason for Registration:" styleClass="detail-section"/>
+        <TextArea fx:id="reasonTextArea" editable="false" wrapText="true" prefRowCount="4"
+                  style="-fx-background-radius: 10; -fx-border-radius: 10; -fx-border-color: #ccc;"/>
+    </VBox>
+</VBox>

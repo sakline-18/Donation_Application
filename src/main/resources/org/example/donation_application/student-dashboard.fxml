@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="org.example.donation_application.controllers.StudentDashboardController"
+      stylesheets="@styles/student-dashboard.css"
+      spacing="15">
+
+    <!-- Navigation Bar -->
+    <HBox styleClass="nav-bar" alignment="CENTER_LEFT" spacing="10">
+        <padding>
+            <Insets top="10" right="20" bottom="10" left="20"/>
+        </padding>
+        <Label fx:id="welcomeLabel" text="Welcome" style="-fx-text-fill: white;" />
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="logoutButton" onAction="#handleLogout" text="Logout" styleClass="button-secondary"/>
+    </HBox>
+
+    <!-- Main TabPane -->
+    <TabPane VBox.vgrow="ALWAYS">
+
+        <!-- Profile Tab -->
+        <Tab text="Profile" closable="false">
+            <VBox spacing="15">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <Label text="Student Profile" styleClass="subtitle"/>
+
+                <VBox styleClass="card" spacing="15">
+                    <Label text="Personal Information" styleClass="section-header"/>
+                    <HBox alignment="CENTER_LEFT" spacing="20">
+                        <VBox spacing="10" HBox.hgrow="ALWAYS">
+                            <Label fx:id="nameLabel"/>
+                            <Label fx:id="emailLabel"/>
+                            <Label fx:id="phoneLabel"/>
+                        </VBox>
+                        <ImageView fx:id="studentImageView" fitHeight="100" fitWidth="100" preserveRatio="true" visible="false"/>
+                    </HBox>
+
+                    <Separator/>
+
+                    <Label text="Academic Information" styleClass="section-header"/>
+                    <Label fx:id="schoolLabel"/>
+                    <Label fx:id="streamLabel"/>
+
+                    <Separator/>
+
+                    <Label text="Registration Details" styleClass="section-header"/>
+                    <Label fx:id="reasonLabel" wrapText="true"/>
+                </VBox>
+            </VBox>
+        </Tab>
+
+        <!-- Donations Received Tab -->
+        <Tab text="Donations Received" closable="false">
+            <VBox spacing="15">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <Label text="Received Donations" styleClass="subtitle"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+<!--                    <Button fx:id="refreshButton" onAction="#handleRefresh" text="Refresh" styleClass="button-secondary"/>-->
+                </HBox>
+
+                <TableView fx:id="donationsTable" VBox.vgrow="ALWAYS" prefHeight="400" styleClass="donation-table">
+                    <columns>
+                        <TableColumn fx:id="donorColumn" text="Donor" prefWidth="150"/>
+                        <TableColumn fx:id="amountColumn" text="Amount" prefWidth="120"/>
+                        <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="250"/>
+                        <TableColumn fx:id="dateColumn" text="Date" prefWidth="150"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </Tab>
+
+    </TabPane>
+
+</VBox>

@@ -1,0 +1,57 @@
+/* Root container with modern background */
+.root {
+    -fx-background-color: #f0f2f5; /* light gray-blue, modern and soft */
+    -fx-alignment: center;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+/* Card styling */
+.card {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 15;
+    -fx-border-radius: 15;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 1;
+    -fx-padding: 30;
+    -fx-spacing: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 15, 0, 0, 5);
+}
+
+/* Title */
+.title {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* Pending message container */
+.pending-container {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
+
+/* Pending message text */
+.pending-text {
+    -fx-font-size: 14px;
+    -fx-text-fill: #555555;
+}
+
+/* User info section */
+.section-header {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e;
+}
+
+/* Logout button */
+.button-secondary {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 6 12 6 12;
+    -fx-cursor: hand;
+}
+.button-secondary:hover {
+    -fx-background-color: #5a6268;
+}
