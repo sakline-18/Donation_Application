@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" styleClass="root"
+      xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1"
+      stylesheets="@styles/pending-approval.css"
+      fx:controller="org.example.donation_application.controllers.PendingApprovalController"
+      spacing="20">
+
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <!-- Top Spacer -->
+    <Region VBox.vgrow="ALWAYS"/>
+
+    <!-- Card Container -->
+    <VBox alignment="CENTER" styleClass="card" maxWidth="500" spacing="20">
+        <!-- Title -->
+        <Label text="Account Pending" styleClass="title"/>
+
+        <!-- Pending Icon & Message -->
+        <VBox styleClass="pending-container" alignment="CENTER" spacing="10">
+            <Label text="📋" style="-fx-font-size: 48px;"/>
+            <Label fx:id="messageLabel" styleClass="pending-text" textAlignment="CENTER" wrapText="true"/>
+        </VBox>
+
+        <!-- User Info -->
+        <VBox styleClass="spacing-small" alignment="CENTER" spacing="5">
+            <Label fx:id="nameLabel" styleClass="section-header"/>
+            <Label fx:id="emailLabel"/>
+        </VBox>
+
+        <!-- Logout Button -->
+        <Button fx:id="logoutButton" onAction="#handleLogout" text="Logout"
+                styleClass="button-secondary" prefHeight="40"/>
+    </VBox>
+
+    <!-- Bottom Spacer -->
+    <Region VBox.vgrow="ALWAYS"/>
+</VBox>

@@ -1,0 +1,64 @@
+/* Root container styling with background color */
+.detail-view {
+    -fx-background-color: #f0f2f5; /* light gray-blue, modern and soft */
+    -fx-padding: 30;
+    -fx-spacing: 25;
+    -fx-alignment: top_center;
+    -fx-font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+/* Header Title */
+.detail-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2c3e50; /* dark blue-gray */
+}
+
+/* Close button styled like Bootstrap secondary */
+.button-secondary {
+    -fx-background-color: #6c757d;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 6 12 6 12;
+    -fx-cursor: hand;
+}
+.button-secondary:hover {
+    -fx-background-color: #5a6268;
+}
+
+/* Student Image */
+#studentImageView {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0, 0, 5);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
+
+/* Labels for info */
+.detail-name {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #34495e; /* modern dark gray-blue */
+}
+
+.detail-section {
+    -fx-font-size: 14px;
+    -fx-font-weight: semi-bold;
+    -fx-text-fill: #2c3e50;
+}
+
+/* TextArea styling */
+.text-area {
+    -fx-background-color: #ffffff; /* white for contrast */
+    -fx-border-color: #ced4da; /* subtle border */
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 6 8 6 8;
+    -fx-font-size: 13px;
+    -fx-text-fill: #495057;
+}
+
+/* VBox and HBox spacing for modern layout */
+.vbox, .hbox {
+    -fx-spacing: 12;
+}
